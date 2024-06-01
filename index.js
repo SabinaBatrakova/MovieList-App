@@ -8,8 +8,6 @@ const btnInputNode = document.querySelector ('.js-btn_add-movies');
 const listNode = document.querySelector('.js-movie_list');
 
 
-
-
 //объявление основной переменной, при запуске содержит пустой массив, добавляем в список нажатием на кнопку добваить
 
 let listMovies = [];
@@ -21,7 +19,7 @@ btnInputNode.addEventListener('click', function () {
         return;
     }
     trackList(movie);
-render()
+    render()
     
 })
 
@@ -45,28 +43,42 @@ function clearInput() {
 
 function render() {
     listNode.innerHTML = '';
-    listMovies.forEach((movie,index) => {
+
+    listMovies.forEach((movie, index) => {
         const movieItem = document.createElement('div');
         movieItem.className = 'movie_item';
-
+        
+        const iconMovie = document.createElement('div');
+        iconMovie.className = 'icon_Movie';
+        
+        iconMovie.addEventListener('click', () => {
+            crossOutMovie(movieItem, iconMovie);
+        })
         const movieName = document.createElement('div');
         movieName.textContent = movie;
 
         const deleteButton = document.createElement('div');
-        deleteButton.textContent = 'x';
-
         deleteButton.className = 'delete_movie';
+        const deleteIcon = document.createElement('img');
+        deleteIcon.src = './close.png';
+       
         deleteButton.addEventListener('click', () => {
             deleteMovie(index);
         })
-movieItem.appendChild(movieName);
-movieItem.appendChild(deleteButton);
-listNode.appendChild(movieItem);
+
+    deleteButton.appendChild(deleteIcon);
+    movieItem.appendChild(iconMovie);
+    movieItem.appendChild(movieName);
+    movieItem.appendChild(deleteButton);  
+    listNode.appendChild(movieItem);
 
     })
 }
 
-
+function crossOutMovie(movieItem, iconMovie) {
+movieItem.classList.toggle('cross_out_movie');
+iconMovie.classList.toggle('cross_out_type');
+}
 
 function deleteMovie(index) {
     listMovies.splice(index,1);
