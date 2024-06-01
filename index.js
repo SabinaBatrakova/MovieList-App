@@ -60,7 +60,7 @@ function render() {
         const deleteButton = document.createElement('div');
         deleteButton.className = 'delete_movie';
         const deleteIcon = document.createElement('img');
-        deleteIcon.src = 'close.png';
+        deleteIcon.src = '/close.png';
        
         deleteButton.addEventListener('click', () => {
             deleteMovie(index);
