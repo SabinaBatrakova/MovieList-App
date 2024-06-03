@@ -5,9 +5,13 @@ body {
     box-sizing: border-box;
 }
 
-h1 {
-    font-size: 70px;
-    margin-left: 200px;
+.container {
+    width: 900px;
+    border: 2px solid white;
+}
+
+header {
+    width: 100%;
 }
 
 main {
@@ -15,6 +19,11 @@ main {
     padding: 15px 0;
     margin: 0 auto;
     border: 2px solid red;
+}
+
+h1 {
+    font-size: 70px;
+    margin-left: 200px;
 }
 
 .btn_movie-list,
@@ -63,13 +72,12 @@ main {
 }
 
 .add_movies {
+    width: 630px;
     padding: 10px 100px;
     margin: 80px;
     background-color: rgb(53, 56, 56);
     border-radius: 20px;
 }
-
-
 
 .movie_item {
     max-width: 100%;
@@ -108,4 +116,29 @@ main {
 .delete_movie img {
     width: 100%;
     height: 100%;
+}
+
+@media (max-width:750px) {
+
+    .container {
+        width: 100%;
+        border: 2px solid white;
+    }
+
+    header {
+        width: 100%;
+        display: flex;
+    }
+
+    .add_movies {
+        width: 400px;
+        padding: 10px 50px;
+    }
+
+    h1 {
+        font-size: 50px;
+        margin-left: 150px;
+    }
+
+
 }
